@@ -2,6 +2,8 @@ package com.example.university_backend.controller;
 
 import com.example.university_backend.entity.Student;
 import com.example.university_backend.entity.StudentRepository;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +35,9 @@ public class StudentController {
     }
 
     @PostMapping("/students")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "500", description = "Server error"),
+            @ApiResponse(responseCode = "200", description = "Successful retrieval") })
     Student newStudent(@RequestBody Student student) {
         return repository.save(student);
     }
