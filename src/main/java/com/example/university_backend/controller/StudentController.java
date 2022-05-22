@@ -25,6 +25,7 @@ public class StudentController {
 
     @GetMapping("/students")
     List<Student> all() {
+        log.info("GET all students");
         return repository.findAll();
     }
 
