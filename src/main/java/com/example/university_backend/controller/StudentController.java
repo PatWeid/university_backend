@@ -40,6 +40,7 @@ public class StudentController {
             @ApiResponse(responseCode = "500", description = "Server error"),
             @ApiResponse(responseCode = "200", description = "Successful retrieval") })
     Student newStudent(@RequestBody Student student) {
+        log.info("POST new student: " + student);
         return repository.save(student);
     }
 
