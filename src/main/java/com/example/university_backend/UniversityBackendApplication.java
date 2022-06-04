@@ -15,6 +15,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Collections;
+import java.util.Date;
 
 @SpringBootApplication
 public class UniversityBackendApplication {
@@ -29,8 +30,8 @@ public class UniversityBackendApplication {
     @Bean
     CommandLineRunner initDataBase(StudentRepository repository) {
         return args -> {
-            log.info("fill DB: " + repository.save(new Student("Stanley", "Kubrick")));
-            log.info("fill DB: " + repository.save(new Student("George", "Orwell")));
+            log.info("fill DB: " + repository.save(new Student(9000L, "Stanley", "Kubrick",new Date(), new Date(), "male", "Computer Science", "stanley@kubrick.com")));
+            log.info("fill DB: " + repository.save(new Student(1984L, "George", "Orwell", new Date(), new Date(), "male", "Mathematics", "george@orwell.com")));
         };
     }
 
