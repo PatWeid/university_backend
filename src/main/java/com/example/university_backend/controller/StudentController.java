@@ -46,10 +46,17 @@ public class StudentController {
 
     @PutMapping("/students/{id}")
     Student updateStudent(@RequestBody Student updateStudent, @PathVariable Long id) {
+        log.info("UPDATE student: " + updateStudent);
         return repository.findById(id).
                 map(student -> {
+                    student.setId(updateStudent.getId());
                     student.setFirstName(updateStudent.getFirstName());
                     student.setLastName(updateStudent.getLastName());
+                    student.setDob(updateStudent.getDob());
+                    student.setJoiningDate(updateStudent.getJoiningDate());
+                    student.setGender(updateStudent.getGender());
+                    student.setDepartment(updateStudent.getDepartment());
+                    student.setEmail(updateStudent.getEmail());
                     return repository.save(student);
                 })
                 .orElseThrow(() -> new IllegalArgumentException("not found - MatNr: " + id));
