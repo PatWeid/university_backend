@@ -1,6 +1,8 @@
 package com.example.university_backend;
 
+import com.example.university_backend.entity.Staff;
 import com.example.university_backend.entity.Student;
+import com.example.university_backend.repository.StaffRepository;
 import com.example.university_backend.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,10 +30,11 @@ public class UniversityBackendApplication {
 
 
     @Bean
-    CommandLineRunner initDataBase(StudentRepository repository) {
+    CommandLineRunner initDataBase(StudentRepository studentRepository, StaffRepository staffRepository) {
         return args -> {
-            log.info("fill DB: " + repository.save(new Student(9000L, "Stanley", "Kubrick",new Date(), new Date(), "male", "Computer Science", "stanley@kubrick.com")));
-            log.info("fill DB: " + repository.save(new Student(1984L, "George", "Orwell", new Date(), new Date(), "male", "Mathematics", "george@orwell.com")));
+            log.info("fill DB: " + studentRepository.save(new Student(9000L, "Stanley", "Kubrick",new Date(), new Date(), "male", "Computer Science", "stanley@kubrick.com")));
+            log.info("fill DB: " + studentRepository.save(new Student(1984L, "George", "Orwell", new Date(), new Date(), "male", "Mathematics", "george@orwell.com")));
+            log.info("fill DB: " + staffRepository.save(new Staff(1000L, "David", "Lynch", new Date(), "male", "david@Lynch.de")));
         };
     }
 

@@ -13,24 +13,16 @@ public class Staff {
     @Id
     @GeneratedValue
     private Long id;
-
     private Long staffID;
-
     private String firstName;
-
     private String lastName;
-
     private Date dob;
-
     private String gender;
-
     private String email;
-
     public Staff() {
 
     }
-    public Staff(Long id, Long staffID, String firstName, String lastName, Date dob, String gender, String email) {
-        this.id = id;
+    public Staff(Long staffID, String firstName, String lastName, Date dob, String gender, String email) {
         this.staffID = staffID;
         this.firstName = firstName;
         this.lastName = lastName;

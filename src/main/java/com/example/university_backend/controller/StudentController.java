@@ -31,8 +31,8 @@ public class StudentController {
 
     @GetMapping("/students/{id}")
     Student getStudent(@PathVariable Long id) {
-        log.info("GET student matNr: " + id);
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found - MatNr: " + id));
+        log.info("GET student id: " + id);
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Student not found - id: " + id));
     }
 
     @PostMapping("/students")
@@ -59,12 +59,12 @@ public class StudentController {
                     student.setEmail(updateStudent.getEmail());
                     return repository.save(student);
                 })
-                .orElseThrow(() -> new IllegalArgumentException("not found - MatNr: " + id));
+                .orElseThrow(() -> new IllegalArgumentException("Student not found - id: " + id));
     }
 
     @DeleteMapping("/students/{id}")
     void deleteStudent(@PathVariable Long id) {
-        log.info("DELETE student matNr: " + id);
+        log.info("DELETE student id: " + id);
         repository.deleteById(id);
     }
 }
