@@ -1,7 +1,7 @@
 package com.example.university_backend.controller;
 
 import com.example.university_backend.entity.Student;
-import com.example.university_backend.entity.StudentRepository;
+import com.example.university_backend.repository.StudentRepository;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;

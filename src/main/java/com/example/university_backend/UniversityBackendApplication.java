@@ -1,7 +1,7 @@
 package com.example.university_backend;
 
 import com.example.university_backend.entity.Student;
-import com.example.university_backend.entity.StudentRepository;
+import com.example.university_backend.repository.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
