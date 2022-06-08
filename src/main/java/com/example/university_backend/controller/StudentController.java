@@ -30,7 +30,7 @@ public class StudentController {
     }
 
     @GetMapping("/students/{id}")
-    Student getStudent(@PathVariable Long id) {
+    Student getStudentsByCourse(@PathVariable Long id) {
         log.info("GET student id: " + id);
         return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Student not found - id: " + id));
     }
@@ -67,4 +67,11 @@ public class StudentController {
         log.info("DELETE student id: " + id);
         repository.deleteById(id);
     }
+
+    @GetMapping("students/course/{course}")
+    List<Student> getStudentsByCourse(@PathVariable String course) {
+        log.info("GET students by course: " + course);
+        return repository.findByCourse(course);
+    }
+
 }
